@@ -22,7 +22,7 @@ jobs:
         run: go mod vendor
 
       - name: Build ping
-        run: go build -v --trimpath --mod=vendor --buildmode=plugin -o ./ping.so ./ping/...
+        run: go build -v --trimpath --mod=vendor --buildmode=plugin -o "${{runner.workspace}}/ping.so" ./ping/...
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
