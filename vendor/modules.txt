@@ -1,0 +1,4 @@
+# github.com/heroiclabs/nakama-common v1.21.0
+## explicit; go 1.14
+# google.golang.org/protobuf v1.27.1
+## explicit; go 1.9
