@@ -11,12 +11,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.17
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
 
-    - name: Build ping
-      run: go build -v --trimpath --mod=vendor --buildmode=plugin -o ./ping.so ./ping/...
+      - name: Build ping
+        run: go build -v --trimpath --mod=vendor --buildmode=plugin -o ./ping.so ./ping/...
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ping
+          path: ${{runner.workspace}}/ping.so
